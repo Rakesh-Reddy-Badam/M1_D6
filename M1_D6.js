@@ -100,7 +100,7 @@
     const onlyLetters= function(a){
         //a=str.toCharArray();
         for(i=0; i<a.length; i++){
-            if(a.charAt[i]!=='Number'){
+            if( a.charAt[i]!==Number){
                 newString+=a[i]
             }
         }
@@ -147,15 +147,16 @@
    Write a function called "howManyDays" which receives a date as a parameter and should return the number of days passed since that date.
 */
 
-     const howManyDays= function(inputDate){
+     const howManyDays= function(a){
         const todaysDate=new Date()
+        const inputDate=new Date(a)
         const date1utc = Date.UTC(todaysDate.getFullYear(), todaysDate.getMonth(), todaysDate.getDate());
-        //const date2utc = Date.UTC(inputDate.getFullYear(), inputDate.getMonth(), inputDate.getDate());
+        const date2utc = Date.UTC(inputDate.getFullYear(), inputDate.getMonth(), inputDate.getDate());
         day=1000*3600*24;
-        return (date1utc-inputDate)/day
+        return (date1utc-date2utc)/day
 
     }
-    console.log(howManyDays('2016-05-09'))
+    console.log(howManyDays('2020-06-28'))
 
 /* Ex.10
    Write a function called "isTodayMyBirthday" which should return true if today's your birthday, false otherwise.
@@ -322,7 +323,16 @@ console.log(countMovies())
 /* Ex.14
     Write a function called "onlyTheTitles" which creates an array with just the titles of the movies provided in the array at the end of the file.
 */
-
+    const onlyTheTitles= function(){
+        let movieTitles=[]
+        for(i=0;i<movies.length;i++){
+            if(movies[i].Type==='movie'){
+                movieTitles.push(movies[i].Title)
+            }
+        }
+    return movieTitles
+    }   
+    console.log(onlyTheTitles())
 /* Ex.15
    Write a function called "onlyInThisMillennium" which returns only the movies produced in this millennium.
 */
